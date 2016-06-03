@@ -1,3 +1,8 @@
+# Library
+http://opentype.js.org/glyph-inspector.html
+Blue dots are points on a path
+Red dots are handles on bezier curve
+
 # global
 ## x-height
 = highest point of x / highest point of A

@@ -1,0 +1,38 @@
+body{
+	margin-left: 300px;
+	padding: 50px 50px;
+}
+
+header ul,header li, header h1 {
+	float: left;
+	margin-right:10px;
+	list-style: none;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+
+article{
+	clear: both;
+}
+
+.fullDisplay{
+	font-size: 8rem;
+}
+
+
+.weights li, .sizes li{
+	list-style: none;
+}
+
+.styleDescription{
+	float: right;
+}
+
+.examples{
+	float: left;
+}
+
+.paragraph12pt{
+	clear: both;
+}

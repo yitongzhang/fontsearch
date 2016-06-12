@@ -1,38 +1,86 @@
 body{
 	margin-left: 300px;
-	padding: 50px 50px;
 }
 
-header ul,header li, header h1 {
+header li{
+	display: inline;
+	margin-right: 10px;
+}
+
+header ul{
+	display: inline;
+}
+
+header h1{
 	float: left;
-	margin-right:10px;
-	list-style: none;
-	margin-bottom: 0;
-	margin-top: 0;
+	margin-top: 15px;
 }
 
+header{
+	color: #555;
+	line-height: 0;
+}
+
+header .stat{
+	color: #999;
+}
+header:after{
+	content: "";
+	display: inline-block;
+	width: 100%;
+	border-bottom: 1px solid #DFDFDF;
+	margin: 0 0 10px 0;
+
+}
+
+.featureGroup{
+	display: none;
+}
+
+article h2{
+	line-height: 0;
+}
+
+h2:after{
+	content: "";
+	display: inline-block;
+	width: 100%;
+	border-bottom: 1px solid #DFDFDF;
+	margin: 10px 0 0px 0;
+
+}
+
+.cta, .cta button, .cta ul, .cta li{
+	margin: 0;
+	margin-left: 5px;
+}
 
 article{
 	clear: both;
 }
 
 .fullDisplay{
-	font-size: 8rem;
+	font-size: 6rem;
+	line-height: 1.1;
+	margin-bottom: 20px;
 }
 
 
 .weights li, .sizes li{
 	list-style: none;
+	margin-left: 0;
 }
 
-.styleDescription{
+.weights ul, .sizes ul{
+	padding-left: 0;
+}
+
+.styleDescription, .cta{
 	float: right;
+	padding-left: 0px;
+	color: #BBB;
 }
 
 .examples{
 	float: left;
-}
-
-.paragraph12pt{
-	clear: both;
 }

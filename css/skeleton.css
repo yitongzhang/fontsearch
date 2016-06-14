@@ -31,8 +31,8 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: 800px;
-  min-width: 800px;
+/*  max-width: 800px;
+  min-width: 800px;*/
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box; }
@@ -124,7 +124,7 @@ are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
   font-size: 62.5%; }
 body {
-  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  font-size: 1.4em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
   font-family: "Lato", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -215,6 +215,15 @@ button.menuButton{
   line-height: 1.6;
 }
 
+button.ctaButton{
+  height: 22px;
+  padding:0 5px;
+  line-height: 0;
+  font-size: 9px;
+  background-color: #777;
+  margin: 2px;
+}
+
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 input[type="email"],
@@ -264,7 +273,7 @@ label,
 legend {
   display: block;
   margin-bottom: .5rem;
-  font-weight: 600; }
+  font-weight: 400; }
 fieldset {
   padding: 0;
   border-width: 0; }

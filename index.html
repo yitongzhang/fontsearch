@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Better Font Search</title>
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href=" css/reset.css">
+	<link rel="stylesheet" type="text/css" href=" css/skeleton.css">
+	<link rel="stylesheet" type="text/css" href=" css/menu.css">
+	<link rel="stylesheet" type="text/css" href=" css/main.css">
+
+	<!-- Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+<aside class="menu">
+	<form action="">
+	<section class="search">
+		<h2>Search fonts</h2>
+		<input type="search" name="search" placeholder="search fonts">
+	</section> <!-- search -->
+
+	<section class="compare">
+		<h2>Compare fonts</h2>
+		<button>Compare</button>
+		<div class="compareTray">
+			<img src="http://placehold.it/60x50">
+			<img src="http://placehold.it/60x50">
+			<img src="http://placehold.it/60x50">
+		</div>
+		<div class="clear"></div>
+	</section> <!-- compare -->
+
+	<section class="global">
+		<h2>Global Filters</h2>
+		<div>
+			<input type="checkbox" id="xHeight">
+			<label for="xHeight">x-height</label>
+			<input type="range" name="xHeight">
+		</div>
+		<div>
+			<input type="checkbox" id="StrokeThickness">
+			<label for="StrokeThickness">Stroke thickness</label>
+			<input type="range" name="StrokeThickness">
+		</div>
+		<div>
+			<input type="checkbox" id="StrokeContrast">
+			<label for="StrokeContrast">Stroke contrast</label>
+			<input type="range" name="StrokeContrast">
+		</div>
+		<div>
+			<input type="checkbox" id="LetterWidth">
+			<label for="LetterWidth">Letter width</label>
+			<input type="range" name="LetterWidth">
+		</div>
+		<div>
+			<input type="checkbox" id="StressAxe">
+			<label for="StressAxe">Stress Axe</label>
+			<input type="range" name="StressAxe">
+		</div>
+	</section><!-- global -->
+
+
+	<section class="serif">
+		<h2>Serif Filters</h2>
+
+		<div class="serifStyle left">
+			<span class="serifFonts">
+				<input type="radio" id="serifFonts" name="serifStyle">
+				<label for="serifFonts">
+					<img src="img/serifLight.png" alt="serif fonts">
+					Serif
+				</label>
+			</span>
+			<span class="sansFonts">
+				<input type="radio" id="sansFonts" name="serifStyle">
+				<label for="sansFonts">
+					<img src="img/sansLight.png" alt="sans serif fonts">
+					Sans
+				</label>	
+			</span>
+
+			<span class="slabFonts">
+				<input type="radio" id="slabFonts" name="serifStyle">
+				<label for="slabFonts">
+					<img src="img/slabLight.png" alt="slab serif fonts">
+					Slab
+				</label>			
+			</span>
+
+		</div><!-- serifStyle left -->
+
+		<div class="bracketSize right">
+			<span class="largeBrackets">
+				<input type="radio" id="largeBrackets" name="bracketSize">
+				<label for="largeBrackets">
+					<img src="img/largeLight.png" alt="large brackets">
+					Large
+				</label>
+			</span>
+					
+			<span class="smallBrackets">
+				<input type="radio" id="smallBrackets" name="bracketSize">
+				<label for="smallBrackets">
+					<img src="img/smallLight.png" alt="small brackets">
+					Small
+				</label>
+			</span>
+
+		</div><!-- bracketSize right -->
+
+		<div class="serifSymm left">
+
+			<span class="symm">
+				<input type="radio" id="symm" name="serifSymm">
+				<label for="symm">
+					<img src="img/symmLight.png" alt="symmetric serifs">
+					Sym
+				</label>
+			</span>
+
+			<span class="asymm">
+				<input type="radio" id="asymm" name="serifSymm">
+				<label for="asymm">
+					<img src="img/asymmLight.png" alt="asymmetric serifs">
+					Asym
+				</label>
+			</span>
+
+		</div><!-- serifSymm left -->
+
+		<div class="serifCurve right">
+
+			<span class="curve">
+				<input type="radio" id="curve" name="serifCurve">
+				<label for="curve">
+					<img src="img/curveLight.png" alt="">
+					Curve
+				</label>
+			</span>
+
+			<span class="flat">
+				<input type="radio" id="flat" name="serifCurve">
+				<label for="flat">
+				<img src="img/flatLight.png" alt="">
+				Flat
+				</label>
+			</span>
+
+
+		</div><!-- serifCurve right -->
+	</section><!-- serif -->
+
+	</form>
+
+	<footer>
+		<!-- <img src="img/logo.png"> -->
+		<ul>
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">Github</a></li>
+			<li><a href="#">About</a></li>
+		</ul>
+	</footer>
+	
+</aside>
+
+<main>
+	
+</main>
+
+</div>
+
+	
+</body>
+</html>
+
+
+
+<!-- JS -->
+<script type="text/javascript" src="script/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="script/main.js"></script>

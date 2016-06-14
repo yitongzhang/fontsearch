@@ -1,3 +1,202 @@
+/*-----------global-----------*/
+main{
+	margin-left: 400px;
+}
+
 html{
+  background-color: #FAFAFA;
+}
+
+.menu{
+	background-color: white;
+	position: fixed;
+	height: 100vh;
+	width: 300px;
+	padding: 20px;
+}
+
+section{
+	margin-bottom: 20px;
+}
+
+h2:after{
+	content: "";
+	display: inline-block;
+	width: 100%;
+	border-bottom: 1px solid #DFDFDF;
+	margin: 0 0 10px 0;
+
+}
+
+/*-----------inputs-----------*/
+input[type=search]{
+	height: 32px;
+	width: 100%;
+	cursor: text;
+	border-radius: 4px;
+	margin-bottom: 0;
 	background-color: #FAFAFA;
+	border-color: #EEE;
+}
+
+label{
+	font-size: 1.3rem;
+	color: #666666;
+	font-weight: 600;
+}
+
+/*---global---*/
+.global label{
+	display: inline-block;
+	width: 130px;
+}
+/*---serif---*/
+.serif label{
+	max-width: 40px;
+	text-align: center;
+}
+
+.serif span{
+	display: inline-block;
+}
+
+.menu input[type=radio]{
+	display: none;
+}
+
+.menu input[type=radio]:checked + label img{
+	
+}
+
+
+/*-----------floats-----------*/
+.serif .right{
+	float: right;
+}
+
+.serif .left{
+	clear: both;
+	float: left;
+}
+
+.clear{
+	clear: both;
+}
+
+.global{
+	clear: both;
+}
+
+.compare button{
+	float: right;
+}
+
+/*-----------footer-----------*/
+footer{
+
+	position: absolute;
+	bottom: 60px;
+}
+
+footer li{
+	float: left;
+	margin: 0 10px;
+	list-style:none;
+}
+
+footer ul{
+	clear: both;
+	margin: 0px 34px;
+}
+
+footer img{
+	margin-left: 100px;
+}
+
+footer a{
+	color: #808080;
+}
+
+
+
+/*-------input range clear-------*/
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 120px; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 120px;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+/*-------thumb style-------*/
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 13px;
+  width: 13px;
+  border-radius: 13px;
+  border: 1px solid #D8D8D8;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -4px; 
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.5)
+}
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.5), 1px 1px 2px rgba(0,0,0,0.5);
+  border: 1px solid #D8D8D8;
+  height: 13px;
+  width: 13px;
+  border-radius: 13px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.5), 1px 1px 2px rgba(0,0,0,0.5);
+  border: 1px solid #D8D8D8;
+  height: 13px;
+  width: 13px;
+  border-radius: 13px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/*----------track----------*/
+input[type=range]::-webkit-slider-runnable-track {
+  width: 120px;
+  height: 5px;
+  border-radius:5px;
+  cursor: pointer;
+  background: #AFAFAF;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #AFAFAF;
+}
+
+input[type=range]::-moz-range-track {
+  width: 120px;
+  height: 5px;
+  border-radius:5px;
+  cursor: pointer;
+  background: #AFAFAF;
 }

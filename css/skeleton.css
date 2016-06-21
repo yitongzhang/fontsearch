@@ -148,22 +148,16 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700; 
   color: #555;
 }
-h1 { font-size: 2.0rem;  }
-h2 { font-size: 1.0rem; }
-h3 { font-size: 1.8rem;  }
-h4 { font-size: 2.4rem; }
-h5 { font-size: 1.5rem;}
+
+h1 { font-size: 2.0rem; }
+h2 { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.05rem;}
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.4rem; font-weight: 300; opacity: 0.5}
+/*small showcase*/
+h5 { font-size: 3.4rem; font-weight: 300;}
+/*super showcase*/
 h6 { font-size: 1.5rem; }
 
-/* Larger than phablet */
-@media (min-width: 750px) {
-  h1 { font-size: 2.0rem; }
-  h2 { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.05rem;}
-  h3 { font-size: 1.8rem; 
-  h4 { font-size: 2.4rem; }
-  h5 { font-size: 1.5rem; }
-  h6 { font-size: 1.5rem; }
-}
 
 p {
   font-family: "Lato","HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;

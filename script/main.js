@@ -1,5 +1,146 @@
 $(function() {
 
+// --------- Compare fonts---------------- //
+var compareItems = $(".compareItems img")
+console.log(typeof compareItems)
+console.log(compareItems)
+console.log(compareItems.length)
+
+if(compareItems.length==0) {
+	console.log("0 item!")
+	$(".compareTray").css("background","url(img/tray0.png) no-repeat")
+	$(".compare button").css("display","none")
+} 
+else{
+
+	if(compareItems.length==1){
+		console.log("1 item!")
+		$(".compareTray").css("background","url(img/tray1.png) no-repeat")
+		// $(".compareTray").css("opacity","0")
+		$(".compare button").css("display","none")
+	}
+
+	else{
+		console.log("2 item!")
+		$(".compareTray").css("background","url(img/tray2.png) no-repeat")
+		$(".compare button").css("display","block")
+	}
+
+}
+
+// --------- Input Range---------------- //
+
+$('.xHeight input:checkbox').change(
+    function(){
+    if($(this).is(':checked')){
+        $(".xHeight div").css('opacity',"1")
+        $(".xHeight label").css('opacity',"1")
+    } 
+    else {
+        $(".xHeight div").css('opacity',"0.5")
+        $(".xHeight label").css('opacity',"0.5")   
+    }
+});
+
+$('.StrokeThickness input:checkbox').change(
+    function(){
+    if($(this).is(':checked')){
+        $(".StrokeThickness div").css('opacity',"1")
+        $(".StrokeThickness label").css('opacity',"1")
+    } 
+    else {
+        $(".StrokeThickness div").css('opacity',"0.5")
+        $(".StrokeThickness label").css('opacity',"0.5")   
+    }
+});
+
+$('.StrokeContrast input:checkbox').change(
+    function(){
+    if($(this).is(':checked')){
+        $(".StrokeContrast div").css('opacity',"1")
+        $(".StrokeContrast label").css('opacity',"1")
+    } 
+    else {
+        $(".StrokeContrast div").css('opacity',"0.5")
+        $(".StrokeContrast label").css('opacity',"0.5")   
+    }
+});
+
+$('.LetterWidth input:checkbox').change(
+    function(){
+    if($(this).is(':checked')){
+        $(".LetterWidth div").css('opacity',"1")
+        $(".LetterWidth label").css('opacity',"1")
+    } 
+    else {
+        $(".LetterWidth div").css('opacity',"0.5")
+        $(".LetterWidth label").css('opacity',"0.5")   
+    }
+});
+
+$('.StressAxe input:checkbox').change(
+    function(){
+    if($(this).is(':checked')){
+        $(".StressAxe div").css('opacity',"1")
+        $(".StressAxe label").css('opacity',"1")
+    } 
+    else {
+        $(".StressAxe div").css('opacity',"0.5")
+        $(".StressAxe label").css('opacity',"0.5")   
+    }
+});
+
+var slider = document.getElementById('sliderX');
+noUiSlider.create(slider, {
+	start: [20, 80],
+	connect: true,
+	range: {
+		'min': 0,
+		'max': 100
+	}
+});
+
+var slider = document.getElementById('sliderT');
+noUiSlider.create(slider, {
+	start: [20, 80],
+	connect: true,
+	range: {
+		'min': 0,
+		'max': 100
+	}
+});
+
+var slider = document.getElementById('sliderC');
+noUiSlider.create(slider, {
+	start: [20, 80],
+	connect: true,
+	range: {
+		'min': 0,
+		'max': 100
+	}
+});
+
+var slider = document.getElementById('sliderW');
+noUiSlider.create(slider, {
+	start: [20, 80],
+	connect: true,
+	range: {
+		'min': 0,
+		'max': 100
+	}
+});
+
+var slider = document.getElementById('sliderS');
+noUiSlider.create(slider, {
+	start: [20, 80],
+	connect: true,
+	range: {
+		'min': 0,
+		'max': 100
+	}
+});
+
+
 // ---------Serif filter buttons--------- //
 var serifpic = $(".serifFonts img");
 var sanspic = $(".sansFonts img");

@@ -1,7 +1,31 @@
-/*-----------global-----------*/
+/*----------main------------*/
 main{
 	margin-left: 400px;
+	padding-top: 60px;
 }
+
+main li{
+	list-style:none;
+	max-width: 800px;
+	margin-bottom: 20px;
+}
+
+.smallShowcase{
+ margin-top: -8px;
+}
+
+
+
+main li button{
+	float:right;
+	color: #4D4D4D;
+	font-weight: 700;
+	font-size: 1.2em;
+	padding: 0px 9px 8px 10px;
+	background-color: rgba(0,0,0,0);
+}
+
+/*-----------global-----------*/
 
 html{
   background-color: #FAFAFA;
@@ -43,6 +67,35 @@ label{
 	font-size: 1.3rem;
 	color: #666666;
 	font-weight: 600;
+}
+
+/*---compare---*/
+
+.compareTray{
+  background: url(../img/compareTray0.png) no-repeat;
+  opacity: 1;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+
+}
+
+.compareItems{
+  z-index: 10;
+
+}
+
+.compareItems img{
+  margin-top: 2px;
+  margin-right: 4px;
+
+}
+
+
+.compare button{
+  margin-top: 13px;
+  float: right;
+  display: none;
 }
 
 /*---global---*/
@@ -87,9 +140,7 @@ label{
 	clear: both;
 }
 
-.compare button{
-	float: right;
-}
+
 
 /*-----------footer-----------*/
 footer{
@@ -119,84 +170,18 @@ footer a{
 
 
 
-/*-------input range clear-------*/
-input[type=range] {
-  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-  width: 120px; /* Specific width is required for Firefox. */
-  background: transparent; /* Otherwise white in Chrome */
-}
+/*-------input range -------*/
 
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-}
-
-input[type=range]:focus {
-  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-}
-
-input[type=range]::-ms-track {
+.slider{
   width: 120px;
-  cursor: pointer;
-
-  /* Hides the slider so custom styles can be added */
-  background: transparent; 
-  border-color: transparent;
-  color: transparent;
+  display: inline-block;
 }
 
-/*-------thumb style-------*/
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 13px;
-  width: 13px;
-  border-radius: 13px;
-  border: 1px solid #D8D8D8;
-  background: #ffffff;
-  cursor: pointer;
-  margin-top: -4px; 
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.5)
-}
-}
-
-/* All the same stuff for Firefox */
-input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.5), 1px 1px 2px rgba(0,0,0,0.5);
-  border: 1px solid #D8D8D8;
-  height: 13px;
-  width: 13px;
-  border-radius: 13px;
-  background: #ffffff;
-  cursor: pointer;
-}
-
-/* All the same stuff for IE */
-input[type=range]::-ms-thumb {
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.5), 1px 1px 2px rgba(0,0,0,0.5);
-  border: 1px solid #D8D8D8;
-  height: 13px;
-  width: 13px;
-  border-radius: 13px;
-  background: #ffffff;
-  cursor: pointer;
-}
-
-/*----------track----------*/
-input[type=range]::-webkit-slider-runnable-track {
-  width: 120px;
-  height: 5px;
-  border-radius:5px;
-  cursor: pointer;
-  background: #AFAFAF;
-}
-
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #AFAFAF;
-}
-
-input[type=range]::-moz-range-track {
-  width: 120px;
-  height: 5px;
-  border-radius:5px;
-  cursor: pointer;
-  background: #AFAFAF;
+.xHeight label,.xHeight div, 
+.StrokeThickness label, .StrokeThickness div, 
+.StrokeContrast label, .StrokeContrast div,
+.LetterWidth label, .LetterWidth div, 
+.StressAxe label, .StressAxe div
+{
+  opacity: 0.5;
 }

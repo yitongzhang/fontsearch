@@ -7,6 +7,9 @@
 	<link rel="stylesheet" type="text/css" href=" css/reset.css">
 	<link rel="stylesheet" type="text/css" href=" css/skeleton.css">
 	<link rel="stylesheet" type="text/css" href=" css/main.css">
+	
+	<!-- CSS dependencies -->
+	<link rel="stylesheet" type="text/css" href=" css/slider/nouislider.css">
 
 	<!-- Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
@@ -14,6 +17,7 @@
 </head>
 <body>
 <aside class="menu">
+
 	<form action="">
 	<section class="search">
 		<h2>Search fonts</h2>
@@ -24,39 +28,41 @@
 		<h2>Compare fonts</h2>
 		<button>Compare</button>
 		<div class="compareTray">
-			<img src="http://placehold.it/60x50">
-			<img src="http://placehold.it/60x50">
-			<img src="http://placehold.it/60x50">
+			<div class="compareItems">
+
+			</div>
 		</div>
 		<div class="clear"></div>
 	</section> <!-- compare -->
 
 	<section class="global">
 		<h2>Global Filters</h2>
-		<div>
+	
+
+		<div class="xHeight">
 			<input type="checkbox" id="xHeight">
 			<label for="xHeight">x-height</label>
-			<input type="range" name="xHeight">
+			<div id="sliderX" class="slider"></div>
 		</div>
-		<div>
+		<div class="StrokeThickness">
 			<input type="checkbox" id="StrokeThickness">
 			<label for="StrokeThickness">Stroke thickness</label>
-			<input type="range" name="StrokeThickness">
+			<div id="sliderT" class="slider"></div>
 		</div>
-		<div>
+		<div class="StrokeContrast">
 			<input type="checkbox" id="StrokeContrast">
 			<label for="StrokeContrast">Stroke contrast</label>
-			<input type="range" name="StrokeContrast">
+			<div id="sliderC" class="slider"></div>
 		</div>
-		<div>
+		<div class="LetterWidth">
 			<input type="checkbox" id="LetterWidth">
 			<label for="LetterWidth">Letter width</label>
-			<input type="range" name="LetterWidth">
+			<div id="sliderW" class="slider"></div>
 		</div>
-		<div>
+		<div class="StressAxe">
 			<input type="checkbox" id="StressAxe">
 			<label for="StressAxe">Stress Axe</label>
-			<input type="range" name="StressAxe">
+			<div id="sliderS" class="slider"></div>
 		</div>
 	</section><!-- global -->
 
@@ -167,23 +173,63 @@
 <main>
 	<ul>
 		<li class="serif large asym flat">
-			<h4>Garamond</h4>
-			<h5>The quick brown fox jumps over the lazy dog</h5>
+			<h4 class="fontName">Garamond</h4>
+			<h5 class="smallShowcase">The quick brown fox jumps over the lazy dog</h5>
 			<button class="addToCompare">+</button>
 		</li>
 		<li class="serif large asym flat">
-			<h4>Garamond</h4>
-			<h5>The quick brown fox jumps over the lazy dog</h5>
+			<h4 class="fontName">Garamond</h4>
+			<h5 class="smallShowcase">The quick brown fox jumps over the lazy dog</h5>
 			<button class="addToCompare">+</button>
 		</li>
 		<li class="serif large asym flat">
-			<h4>Garamond</h4>
-			<h5>The quick brown fox jumps over the lazy dog</h5>
+			<h4 class="fontName">Garamond</h4>
+			<h5 class="smallShowcase">The quick brown fox jumps over the lazy dog</h5>
 			<button class="addToCompare">+</button>
 		</li>
 		<li class="serif large asym flat">
-			<h4>Garamond</h4>
-			<h5>The quick brown fox jumps over the lazy dog</h5>
+			<h4 class="fontName">Garamond</h4>
+			<h5 class="smallShowcase">The quick brown fox jumps over the lazy dog</h5>
+			<button class="addToCompare">+</button>
+		</li>
+		<li class="serif large asym flat">
+			<h4 class="fontName">Garamond</h4>
+			<h5 class="smallShowcase">The quick brown fox jumps over the lazy dog</h5>
+			<button class="addToCompare">+</button>
+		</li>
+		<li class="serif large asym flat">
+			<h4 class="fontName">Garamond</h4>
+			<h5 class="smallShowcase">The quick brown fox jumps over the lazy dog</h5>
+			<button class="addToCompare">+</button>
+		</li>
+		<li class="serif large asym flat">
+			<h4 class="fontName">Garamond</h4>
+			<h5 class="smallShowcase">The quick brown fox jumps over the lazy dog</h5>
+			<button class="addToCompare">+</button>
+		</li>
+		<li class="serif large asym flat">
+			<h4 class="fontName">Garamond</h4>
+			<h5 class="smallShowcase">The quick brown fox jumps over the lazy dog</h5>
+			<button class="addToCompare">+</button>
+		</li>
+		<li class="serif large asym flat">
+			<h4 class="fontName">Garamond</h4>
+			<h5 class="smallShowcase">The quick brown fox jumps over the lazy dog</h5>
+			<button class="addToCompare">+</button>
+		</li>
+		<li class="serif large asym flat">
+			<h4 class="fontName">Garamond</h4>
+			<h5 class="smallShowcase">The quick brown fox jumps over the lazy dog</h5>
+			<button class="addToCompare">+</button>
+		</li>
+		<li class="serif large asym flat">
+			<h4 class="fontName">Garamond</h4>
+			<h5 class="smallShowcase">The quick brown fox jumps over the lazy dog</h5>
+			<button class="addToCompare">+</button>
+		</li>
+		<li class="serif large asym flat">
+			<h4 class="fontName">Garamond</h4>
+			<h5 class="smallShowcase">The quick brown fox jumps over the lazy dog</h5>
 			<button class="addToCompare">+</button>
 		</li>
 
@@ -198,6 +244,11 @@
 
 
 
-<!-- JS -->
+<!-- JS dependencies -->
 <script type="text/javascript" src="script/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="script/nouislider.min.js"></script>
+
+<!--JS -->
 <script type="text/javascript" src="script/main.js"></script>
+
+

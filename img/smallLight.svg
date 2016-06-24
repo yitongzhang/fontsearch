@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>smallLight</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="40" height="40" rx="1"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="40" height="40" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-4" transform="translate(-242.000000, -20.000000)">
+            <g id="smallLight" transform="translate(242.000000, 20.000000)">
+                <rect id="Rectangle-93-Copy-6" fill="#FF1C1C" x="23" y="8" width="4" height="1"></rect>
+                <rect id="Rectangle-93-Copy-7" fill="#FF1C1C" x="13" y="8" width="4" height="1"></rect>
+                <rect id="Rectangle-97-Copy-3" fill="#FF1C1C" x="23" y="32" width="4" height="1"></rect>
+                <rect id="Rectangle-93-Copy-8" fill="#FF1C1C" x="13" y="32" width="4" height="1"></rect>
+                <rect id="Rectangle-84" fill="#D8D8D8" x="18" y="8" width="4" height="25"></rect>
+                <path d="M14,9.00888915 C14,9.00888915 14.8149414,9.08056641 15.7719116,9.6819458 C16.7288818,10.2833252 17.0307007,11.084917 17.0307007,11.084917 L17.0307007,9.00888915 L14,9.00888915 Z" id="Path-155-Copy-5" fill="#FF1C1C"></path>
+                <path d="M23,9.00888915 C23,9.00888915 23.8149414,9.08056641 24.7719116,9.6819458 C25.7288818,10.2833252 26.0307007,11.084917 26.0307007,11.084917 L26.0307007,9.00888915 L23,9.00888915 Z" id="Path-155-Copy-5" fill="#FF1C1C" transform="translate(24.515350, 10.046903) scale(-1, 1) translate(-24.515350, -10.046903) "></path>
+                <path d="M14,30.0088892 C14,30.0088892 14.8149414,30.0805664 15.7719116,30.6819458 C16.7288818,31.2833252 17.0307007,32.084917 17.0307007,32.084917 L17.0307007,30.0088892 L14,30.0088892 Z" id="Path-155-Copy-5" fill="#FF1C1C" transform="translate(15.515350, 31.046903) scale(1, -1) translate(-15.515350, -31.046903) "></path>
+                <path d="M23,30.0088892 C23,30.0088892 23.8149414,30.0805664 24.7719116,30.6819458 C25.7288818,31.2833252 26.0307007,32.084917 26.0307007,32.084917 L26.0307007,30.0088892 L23,30.0088892 Z" id="Path-155-Copy-5" fill="#FF1C1C" transform="translate(24.515350, 31.046903) scale(-1, -1) translate(-24.515350, -31.046903) "></path>
+                <use id="Rectangle-122-Copy-4" stroke="#D8D8D8" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

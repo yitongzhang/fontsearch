@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>curveLight</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="40" height="40" rx="1"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="40" height="40" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-4" transform="translate(-242.000000, -70.000000)">
+            <g id="curveLight" transform="translate(242.000000, 70.000000)">
+                <rect id="Rectangle-84" fill="#D8D8D8" x="18" y="10" width="4" height="21.5"></rect>
+                <path d="M26.7290873,33 L27,33 L27,31 L13,31 L13,33 L13.2709127,33 C15.3992979,32.5665365 17.6587983,32.3333333 20,32.3333333 C22.3412017,32.3333333 24.6007021,32.5665365 26.7290873,33 Z" id="Combined-Shape" fill="#D8D8D8"></path>
+                <path d="M26.7290873,10 L27,10 L27,8 L13,8 L13,10 L13.2709127,10 C15.3992979,9.56653645 17.6587983,9.33333333 20,9.33333333 C22.3412017,9.33333333 24.6007021,9.56653645 26.7290873,10 Z" id="Combined-Shape-Copy" fill="#D8D8D8" transform="translate(20.000000, 9.000000) scale(1, -1) translate(-20.000000, -9.000000) "></path>
+                <use id="Rectangle-122-Copy-8" stroke="#D8D8D8" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+                <path d="M9.8704694,5.01455491 C9.8704694,5.01455491 13.8458674,7.51366657 20.050112,7.51366657 C26.2543566,7.51366657 30.3025019,5.01455491 30.3025019,5.01455491" id="Path-235" stroke="#FF1C1C"></path>
+                <path d="M9.93914325,33.3980555 C9.93914325,33.3980555 13.9145412,35.8971671 20.1187858,35.8971671 C26.3230305,35.8971671 30.3711757,33.3980555 30.3711757,33.3980555" id="Path-235" stroke="#FF1C1C" transform="translate(20.155159, 34.647611) scale(1, -1) translate(-20.155159, -34.647611) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

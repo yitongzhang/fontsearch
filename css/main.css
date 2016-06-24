@@ -4,19 +4,22 @@ main{
 	padding-top: 60px;
 }
 
+.fontList{
+	margin: 0 auto;
+	width: 800px
+}
+
 main li{
 	list-style:none;
-	max-width: 800px;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 
 .smallShowcase{
- margin-top: -8px;
+	margin-top: -8px;
 }
 
-
-
 main li button{
+	margin-top:30px;
 	float:right;
 	color: #4D4D4D;
 	font-weight: 700;

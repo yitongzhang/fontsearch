@@ -1,32 +1,44 @@
 $(function() {
 
-// --------- Compare fonts---------------- //
-var compareItems = $(".compareItems img")
-console.log(typeof compareItems)
-console.log(compareItems)
-console.log(compareItems.length)
+
+
+// --------- Compare tray---------------- //
+var compareItems = $(".compareItems div")
 
 if(compareItems.length==0) {
-	console.log("0 item!")
-	$(".compareTray").css("background","url(img/tray0.png) no-repeat")
+	$(".compareTray").css("background","url(img/compareTray0.png) no-repeat")
 	$(".compare button").css("display","none")
+	console.log(compareItems.length)
 } 
 else{
 
 	if(compareItems.length==1){
-		console.log("1 item!")
-		$(".compareTray").css("background","url(img/tray1.png) no-repeat")
-		// $(".compareTray").css("opacity","0")
+		$(".compareTray").css("background","url(img/compareTray1.png) no-repeat")
 		$(".compare button").css("display","none")
+		console.log(compareItems.length)
 	}
 
 	else{
-		console.log("2 item!")
-		$(".compareTray").css("background","url(img/tray2.png) no-repeat")
+		$(".compareTray").css("background","url(img/compareTray2.png) no-repeat")
 		$(".compare button").css("display","block")
+		console.log(compareItems.length)
 	}
 
 }
+
+// --------- Compare thumbnail----------//
+// if button click
+$(".addToCompare").click(function() {
+	// Get fontName
+	var parent = $(this).parent();
+	console.log(parent.text());
+
+});
+
+
+// Insert html in compareItems
+
+// mark the list item as "added"
 
 // --------- Input Range---------------- //
 

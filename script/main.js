@@ -2,6 +2,47 @@ $(function() {
 
 
 
+// --------- Compare thumbnail----------//
+var clickCount = 0;
+// if button click
+$(".addToCompare").click(function() {
+	//if tray not full
+	
+	var button = this;
+	clickCount++
+
+	if (clickCount%2 == 1) {
+		$(this).css("background-color","#4D4D4D")
+		this.innerHTML="<img src=img/x.png>";
+		console.log("black!"+clickCount+this.innerHTML)
+
+	}
+
+	else if(clickCount%2 == 0){
+		$(this).css("background-color","rgba(0,0,0,0.5)")
+		this.innerHTML="<img src=img/+.png>";
+		console.log("white!"+clickCount+this.innerHTML)
+	}
+
+	if ($(".compareItems div").length<3 && clickCount%2 ==0) {
+		console.log("i've added fonts:" + $(".compareItems div").length)
+		// Get fontName
+		var button = this
+		var fontName = $(this).parent().find("h4");
+		// Insert html in compareItems
+		$(".compareItems").append("<div class='thumbs'><p class='fontName'>Garamond</p><p class='abbreviation'>Ga</p></div>");
+		//update background image
+		changeTrayBackground();
+		// change "+" to "x"
+		this.innerHTML="<img src=img/x.png>";
+	}
+
+	//tell them the goddamn tray is full
+	else{
+		throwError();
+	}
+});
+
 // --------- Compare tray---------------- //
 var compareItems = $(".compareItems div")
 
@@ -23,20 +64,8 @@ var compareItems = $(".compareItems div")
 			$(".compare button").css("display","block")
 			console.log(compareItems.length)
 		}
+
 	}
-}
-
-// --------- Compare thumbnail----------//
-// if button click
-$(".addToCompare").click(function() {
-	// Get fontName
-	var parent = $(this).parent();
-	console.log(parent.text());
-	// Insert html in compareItems
-
-	// mark the list item as "added"
-
-});
 
 
 // --------- Input Range---------------- //
@@ -309,4 +338,39 @@ $(".flat img").click(function() {
 
 
 });
+
+
+
+function changeTrayBackground(){
+var compareItems = $(".compareItems div")
+
+	if(compareItems.length==0) {
+		$(".compareTray").css("background","url(img/compareTray0.png) no-repeat")
+		$(".compare button").css("display","none")
+		console.log(compareItems.length)
+	} 
+	else{
+
+		if(compareItems.length==1){
+			$(".compareTray").css("background","url(img/compareTray1.png) no-repeat")
+			$(".compare button").css("display","none")
+			console.log(compareItems.length)
+		}
+
+		else{
+			$(".compareTray").css("background","url(img/compareTray2.png) no-repeat")
+			$(".compare button").css("display","block")
+			console.log(compareItems.length)
+		}
+
+	}
+}
+
+function throwError(){}
+
+
+
+
+
+
 

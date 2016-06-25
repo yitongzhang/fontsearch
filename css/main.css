@@ -6,12 +6,13 @@ main{
 
 .fontList{
 	margin: 0 auto;
-	width: 800px
+	width: 820px
 }
 
 main li{
 	list-style:none;
-	padding: 10px 20px 20px 20px;
+	padding: 10px 40px 20px 40px;
+	margin-left: -30px;
 	border-radius:3px;
 }
 
@@ -123,16 +124,16 @@ label{
 }
 
 .compareItems img{
-  margin-top: 2px;
-  margin-right: 4px;
+	margin-top: 2px;
+	margin-right: 4px;
 
 }
 
 
 .compare button{
-  margin-top: 13px;
-  float: right;
-
+	margin-top: 13px;
+	float: right;
+	display: none;
 }
 
 /*---global---*/

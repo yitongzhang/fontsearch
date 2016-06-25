@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>serifLight</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="40" height="40" rx="1"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="40" height="40" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-4" transform="translate(-20.000000, -20.000000)">
+            <g id="serifLight" transform="translate(20.000000, 20.000000)">
+                <g id="Group">
+                    <rect id="Rectangle-84" fill="#D8D8D8" x="18" y="8" width="4" height="25"></rect>
+                    <rect id="Rectangle-93" fill="#FF1C1C" x="23" y="8" width="4" height="1"></rect>
+                    <rect id="Rectangle-93-Copy-2" fill="#FF1C1C" x="13" y="8" width="4" height="1"></rect>
+                    <rect id="Rectangle-97-Copy" fill="#FF1C1C" x="23" y="32" width="4" height="1"></rect>
+                    <rect id="Rectangle-93-Copy" fill="#FF1C1C" x="13" y="32" width="4" height="1"></rect>
+                    <path d="M14.036499,8.97387695 C14.036499,8.97387695 15.1279972,9.20598194 15.8909912,9.73797606 C16.6539853,10.2699702 17.0012207,11.0410156 17.0012207,11.0410156 L17.0012207,8.9649878 L14.036499,8.97387695 Z" id="Path-155" fill="#FF1C1C"></path>
+                    <path d="M23.036499,8.97387695 C23.036499,8.97387695 24.1279972,9.20598194 24.8909912,9.73797606 C25.6539853,10.2699702 26.0012207,11.0410156 26.0012207,11.0410156 L26.0012207,8.9649878 L23.036499,8.97387695 Z" id="Path-155" fill="#FF1C1C" transform="translate(24.518860, 10.003002) scale(-1, 1) translate(-24.518860, -10.003002) "></path>
+                    <path d="M14.036499,29.973877 C14.036499,29.973877 15.1279972,30.2059819 15.8909912,30.7379761 C16.6539853,31.2699702 17.0012207,32.0410156 17.0012207,32.0410156 L17.0012207,29.9649878 L14.036499,29.973877 Z" id="Path-155" fill="#FF1C1C" transform="translate(15.518860, 31.003002) scale(1, -1) translate(-15.518860, -31.003002) "></path>
+                    <path d="M23.036499,29.973877 C23.036499,29.973877 24.1279972,30.2059819 24.8909912,30.7379761 C25.6539853,31.2699702 26.0012207,32.0410156 26.0012207,32.0410156 L26.0012207,29.9649878 L23.036499,29.973877 Z" id="Path-155" fill="#FF1C1C" transform="translate(24.518860, 31.003002) scale(-1, -1) translate(-24.518860, -31.003002) "></path>
+                    <use id="Rectangle-122" stroke="#D8D8D8" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

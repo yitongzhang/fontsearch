@@ -1,185 +1,73 @@
 $(function() {
 
-
+changeTrayBackground();
 
 // --------- Compare thumbnail----------//
-var clickCount = 0;
+
 // if button click
 $(".addToCompare").click(function() {
-	//if tray not full
-	
+	//is font already in Tray?
+	var inTray = false;
 	var button = this;
-	clickCount++
+	var fontName = $(this).parent().find(".fontName").text();
+	var fontClass = "."+fontName;
 
-	if (clickCount%2 == 1) {
-		$(this).css("background-color","#4D4D4D")
-		this.innerHTML="<img src=img/x.png>";
-		console.log("black!"+clickCount+this.innerHTML)
+	//find all thumbs
+	
+	//if any of the thumbs hasClass(fontClass), set inTray true
 
-	}
-
-	else if(clickCount%2 == 0){
-		$(this).css("background-color","rgba(0,0,0,0.5)")
-		this.innerHTML="<img src=img/+.png>";
-		console.log("white!"+clickCount+this.innerHTML)
-	}
-
-	if ($(".compareItems div").length<3 && clickCount%2 ==0) {
-		console.log("i've added fonts:" + $(".compareItems div").length)
-		// Get fontName
-		var button = this
-		var fontName = $(this).parent().find("h4");
-		// Insert html in compareItems
-		$(".compareItems").append("<div class='thumbs'><p class='fontName'>Garamond</p><p class='abbreviation'>Ga</p></div>");
+	//if font already in compare tray 
+	if (inTray) {
+		//Get fontName
+		var button = this;
+		var fontName = $(this).parent().find(".fontName").text();
+		//generate class of font to remove
+		var fontClass = "."+fontName;
+		//Remove html from compare Items
+		$(fontClass).remove();
 		//update background image
 		changeTrayBackground();
-		// change "+" to "x"
-		this.innerHTML="<img src=img/x.png>";
+		//change "x" to "+"
+		this.innerHTML="<i class='fa fa-plus' aria-hidden='true'></i>";
 	}
 
-	//tell them the goddamn tray is full
+	//if tray is full
+	else if ($(".compareItems div").length>2) {
+		$('.error').css('display','block');
+	}
+
+	//if tray not full and font not in compare tray 
 	else{
-		throwError();
+		//Get fontName
+		var button = this;
+		var fontName = $(this).parent().find(".fontName").text();
+		var fontAbbrev = fontName[0]+fontName[1];
+		//generate html with correct fontname
+		var thumbCard = "<div class='thumbs "+fontName+"'><p class='fontName'>"+fontName+"</p><p class='abbreviation'>"+fontAbbrev+"</p></div>";
+		//Insert html in compareItems (make this actually display correct font)
+		$(".compareItems").append(thumbCard);
+		//update background image
+		changeTrayBackground();
+		//change "+" to "x"
+		this.innerHTML="<i class='fa fa-times' aria-hidden='true'></i>";
 	}
 });
-
-// --------- Compare tray---------------- //
-var compareItems = $(".compareItems div")
-
-	if(compareItems.length==0) {
-		$(".compareTray").css("background","url(img/compareTray0.png) no-repeat")
-		$(".compare button").css("display","none")
-		console.log(compareItems.length)
-	} 
-	else{
-
-		if(compareItems.length==1){
-			$(".compareTray").css("background","url(img/compareTray1.png) no-repeat")
-			$(".compare button").css("display","none")
-			console.log(compareItems.length)
-		}
-
-		else{
-			$(".compareTray").css("background","url(img/compareTray2.png) no-repeat")
-			$(".compare button").css("display","block")
-			console.log(compareItems.length)
-		}
-
-	}
 
 
 // --------- Input Range---------------- //
 
-$('.xHeight input:checkbox').change(
-    function(){
-    if($(this).is(':checked')){
-        $(".xHeight div").css('opacity',"1")
-        $(".xHeight label").css('opacity',"1")
-    } 
-    else {
-        $(".xHeight div").css('opacity',"0.5")
-        $(".xHeight label").css('opacity',"0.5")   
-    }
-});
+//change slider opacity based on checkbox
+changeSliderOpacity("xHeight");
+changeSliderOpacity("StrokeThickness");
+changeSliderOpacity("StrokeContrast");
+changeSliderOpacity("LetterWidth");
 
-$('.StrokeThickness input:checkbox').change(
-    function(){
-    if($(this).is(':checked')){
-        $(".StrokeThickness div").css('opacity',"1")
-        $(".StrokeThickness label").css('opacity',"1")
-    } 
-    else {
-        $(".StrokeThickness div").css('opacity',"0.5")
-        $(".StrokeThickness label").css('opacity',"0.5")   
-    }
-});
-
-$('.StrokeContrast input:checkbox').change(
-    function(){
-    if($(this).is(':checked')){
-        $(".StrokeContrast div").css('opacity',"1")
-        $(".StrokeContrast label").css('opacity',"1")
-    } 
-    else {
-        $(".StrokeContrast div").css('opacity',"0.5")
-        $(".StrokeContrast label").css('opacity',"0.5")   
-    }
-});
-
-$('.LetterWidth input:checkbox').change(
-    function(){
-    if($(this).is(':checked')){
-        $(".LetterWidth div").css('opacity',"1")
-        $(".LetterWidth label").css('opacity',"1")
-    } 
-    else {
-        $(".LetterWidth div").css('opacity',"0.5")
-        $(".LetterWidth label").css('opacity',"0.5")   
-    }
-});
-
-$('.StressAxe input:checkbox').change(
-    function(){
-    if($(this).is(':checked')){
-        $(".StressAxe div").css('opacity',"1")
-        $(".StressAxe label").css('opacity',"1")
-    } 
-    else {
-        $(".StressAxe div").css('opacity',"0.5")
-        $(".StressAxe label").css('opacity',"0.5")   
-    }
-});
-
-var slider = document.getElementById('sliderX');
-noUiSlider.create(slider, {
-	start: [20, 80],
-	connect: true,
-	range: {
-		'min': 0,
-		'max': 100
-	}
-});
-
-var slider = document.getElementById('sliderT');
-noUiSlider.create(slider, {
-	start: [20, 80],
-	connect: true,
-	range: {
-		'min': 0,
-		'max': 100
-	}
-});
-
-var slider = document.getElementById('sliderC');
-noUiSlider.create(slider, {
-	start: [20, 80],
-	connect: true,
-	range: {
-		'min': 0,
-		'max': 100
-	}
-});
-
-var slider = document.getElementById('sliderW');
-noUiSlider.create(slider, {
-	start: [20, 80],
-	connect: true,
-	range: {
-		'min': 0,
-		'max': 100
-	}
-});
-
-var slider = document.getElementById('sliderS');
-noUiSlider.create(slider, {
-	start: [20, 80],
-	connect: true,
-	range: {
-		'min': 0,
-		'max': 100
-	}
-});
-
+// Create sliders
+createUiSlider('sliderX');
+createUiSlider('sliderT');
+createUiSlider('sliderC');
+createUiSlider('sliderW');
+createUiSlider('sliderS');
 
 // ---------Serif filter buttons--------- //
 var serifpic = $(".serifFonts img");
@@ -337,9 +225,10 @@ $(".flat img").click(function() {
 });
 
 
-});
+}); //end of main Jquery
 
 
+// useful functions
 
 function changeTrayBackground(){
 var compareItems = $(".compareItems div")
@@ -347,30 +236,52 @@ var compareItems = $(".compareItems div")
 	if(compareItems.length==0) {
 		$(".compareTray").css("background","url(img/compareTray0.png) no-repeat")
 		$(".compare button").css("display","none")
-		console.log(compareItems.length)
 	} 
 	else{
 
 		if(compareItems.length==1){
 			$(".compareTray").css("background","url(img/compareTray1.png) no-repeat")
 			$(".compare button").css("display","none")
-			console.log(compareItems.length)
 		}
 
 		else{
 			$(".compareTray").css("background","url(img/compareTray2.png) no-repeat")
 			$(".compare button").css("display","block")
-			console.log(compareItems.length)
 		}
 
 	}
 }
 
-function throwError(){}
 
 
 
+function changeSliderOpacity(featureName){
+	$('.'+featureName+' input:checkbox').change(
+	    function(){
+	    if($(this).is(':checked')){
+	        $('.'+featureName+" div").css('opacity',"1")
+	        $('.'+featureName+" label").css('opacity',"1")
+	    } 
+	    else {
+	        $('.'+featureName+" div").css('opacity',"0.5")
+	        $('.'+featureName+" label").css('opacity',"0.5")   
+	    }
+	});
+}
 
+
+function createUiSlider(sliderName){
+	var slider = document.getElementById(sliderName);
+	
+	noUiSlider.create(slider, {
+		start: [20, 80],
+		connect: true,
+		range: {
+			'min': 0,
+			'max': 100
+		}
+	});
+}
 
 
 

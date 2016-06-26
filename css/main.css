@@ -1,3 +1,47 @@
+/*-----------global-----------*/
+html{
+  background-color: #FAFAFA;
+}
+
+.menu{
+	background-color: white;
+	position: fixed;
+	height: 100vh;
+	width: 300px;
+	padding: 20px;
+}
+
+section{
+	margin-bottom: 20px;
+}
+
+h2:after{
+	content: "";
+	display: inline-block;
+	width: 100%;
+	border-bottom: 1px solid #DFDFDF;
+	margin: 0 0 10px 0;
+
+}
+
+.error{
+	position: fixed;
+	width: 300px;
+	padding: 0 20px;
+	margin:0;
+	color: red;
+	background-color: #FF9393;
+	z-index: 20;
+	display: none;
+/*	border: 1px solid red;
+	border-radius: 2px;*/
+
+}
+
+.error .dismiss{
+	float: right;
+}
+
 /*----------main------------*/
 main{
 	margin-left: 400px;
@@ -35,7 +79,10 @@ main li button{
 	background-color: rgba(0,0,0,0);
 }
 
-/*-------font thumbnail-----*/
+/*---------------------Menu--------------------------*/
+
+/*-------Compare Tray-----*/
+
 .thumbs{
 	z-index: 12;
 	width: 60px;
@@ -64,52 +111,6 @@ main li button{
 	font-family: "Lato";
 }
 
-/*-----------global-----------*/
-
-html{
-  background-color: #FAFAFA;
-}
-
-.menu{
-	background-color: white;
-	position: fixed;
-	height: 100vh;
-	width: 300px;
-	padding: 20px;
-}
-
-section{
-	margin-bottom: 20px;
-}
-
-h2:after{
-	content: "";
-	display: inline-block;
-	width: 100%;
-	border-bottom: 1px solid #DFDFDF;
-	margin: 0 0 10px 0;
-
-}
-
-/*-----------inputs-----------*/
-input[type=search]{
-	height: 32px;
-	width: 100%;
-	cursor: text;
-	border-radius: 4px;
-	margin-bottom: 0;
-	background-color: #FAFAFA;
-	border-color: #EEE;
-}
-
-label{
-	font-size: 1.3rem;
-	color: #666666;
-	font-weight: 600;
-}
-
-/*---compare---*/
-
 .compareTray{
   background: url(../img/compareTray0.png) no-repeat;
   opacity: 1;
@@ -129,19 +130,40 @@ label{
 
 }
 
-
 .compare button{
 	margin-top: 13px;
 	float: right;
 	display: none;
 }
 
-/*---global---*/
+.compare{
+	margin-top: 6px;
+}
+
+/*-----------inputs-----------*/
+input[type=search]{
+	height: 32px;
+	width: 100%;
+	cursor: text;
+	border-radius: 4px;
+	margin-bottom: 0;
+	background-color: #FAFAFA;
+	border-color: #EEE;
+}
+
+label{
+	font-size: 1.3rem;
+	color: #666666;
+	font-weight: 600;
+}
+
+
+/*---global filters---*/
 .global label{
 	display: inline-block;
 	width: 130px;
 }
-/*---serif---*/
+/*---serif filters---*/
 .serif label{
 	max-width: 40px;
 	text-align: center;
@@ -178,7 +200,10 @@ label{
 	clear: both;
 }
 
-
+/*-----------search------------*/
+.search{
+	margin-top: 160px;
+}
 
 /*-----------footer-----------*/
 footer{

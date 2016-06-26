@@ -9,12 +9,23 @@ $(".addToCompare").click(function() {
 	//is font already in Tray?
 	var inTray = false;
 	var button = this;
-	var fontName = $(this).parent().find(".fontName").text();
-	var fontClass = "."+fontName;
+	var findThis = $(this).parent().find(".fontName").text().replace(/\s/g, '');
+	var traym = $(".compareItems");
+	console.log(traym[0]);
 
 	//find all thumbs
-	
-	//if any of the thumbs hasClass(fontClass), set inTray true
+	var allThumbs = $(".compareItems").find(".thumbs");
+	//set true if font in Tray
+	if (allThumbs.hasClass(findThis)){
+		console.log("found a "+findThis);
+		inTray = true;
+	}
+	//set false if font not in tray
+	else{
+		console.log("no "+findThis);
+		inTray = false;
+	}
+
 
 	//if font already in compare tray 
 	if (inTray) {
@@ -22,13 +33,15 @@ $(".addToCompare").click(function() {
 		var button = this;
 		var fontName = $(this).parent().find(".fontName").text();
 		//generate class of font to remove
-		var fontClass = "."+fontName;
+		var fontClass = "."+fontName.replace(/\s/g, '');
 		//Remove html from compare Items
 		$(fontClass).remove();
 		//update background image
 		changeTrayBackground();
 		//change "x" to "+"
 		this.innerHTML="<i class='fa fa-plus' aria-hidden='true'></i>";
+		$(this).css("background-color","transparent");
+		$(this).css("color","#4D4D4D");
 	}
 
 	//if tray is full
@@ -41,15 +54,25 @@ $(".addToCompare").click(function() {
 		//Get fontName
 		var button = this;
 		var fontName = $(this).parent().find(".fontName").text();
-		var fontAbbrev = fontName[0]+fontName[1];
+		var fontAbbrev = fontName.substr(0,2)
+		if(fontName.length >10){
+			var trimmedFontName = fontName.substr(0,10)+"&hellip;";
+		}
+		else{
+			var trimmedFontName = fontName;
+		}
+		
+
 		//generate html with correct fontname
-		var thumbCard = "<div class='thumbs "+fontName+"'><p class='fontName'>"+fontName+"</p><p class='abbreviation'>"+fontAbbrev+"</p></div>";
+		var thumbCard = "<div class='thumbs "+fontName.replace(/\s/g, '')+"'><p class='fontName'>"+trimmedFontName+"</p><p class='abbreviation'>"+fontAbbrev+"</p></div>";
 		//Insert html in compareItems (make this actually display correct font)
 		$(".compareItems").append(thumbCard);
 		//update background image
 		changeTrayBackground();
 		//change "+" to "x"
 		this.innerHTML="<i class='fa fa-times' aria-hidden='true'></i>";
+		$(this).css("background-color","#4D4D4D");
+		$(this).css("color","white");
 	}
 });
 

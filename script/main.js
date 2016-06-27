@@ -3,6 +3,10 @@ $(function() {
 changeTrayBackground();
 
 // --------- Compare thumbnail----------//
+// close error message
+$(".dismiss").click(function() {
+	$(this).parent().css("display","none");
+});
 
 // if button click
 $(".addToCompare").click(function() {
@@ -42,6 +46,9 @@ $(".addToCompare").click(function() {
 		this.innerHTML="<i class='fa fa-plus' aria-hidden='true'></i>";
 		$(this).css("background-color","transparent");
 		$(this).css("color","#4D4D4D");
+
+		//remove error
+		$(".error").css("display","none");
 	}
 
 	//if tray is full

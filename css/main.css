@@ -40,6 +40,7 @@ h2:after{
 
 .error .dismiss{
 	float: right;
+	cursor:pointer;
 }
 
 /*----------main------------*/

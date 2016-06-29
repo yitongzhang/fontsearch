@@ -2,6 +2,25 @@ $(function() {
 
 changeTrayBackground();
 
+// api call
+
+$(".test").click(function() {
+	$.ajax({
+	   url : 'https://api.airtable.com/v0/appRpnaJzUD27twS5/Table%201?maxRecords=3&view=Main%20View',
+	   method: 'GET',
+	   headers : {
+	       'Authorize' : 'Bearer keyiAM0m2a8F1ONji'
+	   }
+	}).done(function (data) {
+	   // do your stuff with the json here
+	   console.log(data);
+	});	
+
+});
+
+
+
+
 // --------- Compare thumbnail----------//
 // close error message
 $(".dismiss").click(function() {

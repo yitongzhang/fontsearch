@@ -4,19 +4,62 @@ changeTrayBackground();
 
 // api call
 
-$(".test").click(function() {
+$( document ).ready(function() {
+// Call airtable API
 	$.ajax({
-	   url : 'https://api.airtable.com/v0/appRpnaJzUD27twS5/Table%201?maxRecords=3&view=Main%20View',
+	   url : 'https://api.airtable.com/v0/appRpnaJzUD27twS5/Table%201?view=Main%20View',
 	   method: 'GET',
-	   headers : {
-	       'Authorize' : 'Bearer keyiAM0m2a8F1ONji'
-	   }
-	}).done(function (data) {
-	   // do your stuff with the json here
-	   console.log(data);
+	   beforeSend : function(xhr){
+	   		xhr.setRequestHeader("Authorization", "Bearer keyiAM0m2a8F1ONji");
+	   },
+		dataType : 'json',
+		contentType: 'application/json',
+		complete: function(data){
+			console.log(data);
+		}
 	});	
-
 });
+
+// ------------- Font loader ---------- //
+var gfontsQuery =$("#gfonts").attr("href");
+console.log(gfontsQuery);
+var temp = gfontsQuery.split("=");
+var loadedFonts = temp[1].split("|");
+console.log(loadedFonts);
+var allNames = $(".fontName");
+var allPangrams = $(".smallShowcase");
+var newFontsToLoad =[];
+var newGfontsQuery;
+//console.log(typeof allFonts)
+
+for(var key in allNames){
+	// console.log(allNames[key].innerHTML)
+	// console.log(allPangrams[key].innerHTML)
+
+	//if font name not in gFonts query
+	if(allNames[key] != loadedFonts[key]){
+		//log new font into query
+		newFontsToLoad.push(allNames[key]);
+		//change the pangram and change its font-family
+		var tempStyle = $("<style> ."+allNames[key]+"{ font-family:"+allNames[key]+"; }</style>");
+		$('html > head').append(tempStyle);
+	}
+}
+
+//make new gGontsQuery
+for (var i=0; i<newFontsToLoad.lenght;i++) {
+	if (i == 0) {
+		newGfontsQuery = "https://fonts.googleapis.com/css?family=".concat("|").concat(i);
+	}
+	else{
+		newGfontsQuery = newGfontsQuery.concat("|").concat(i);
+	}
+	console.log(newGfontsQuery)
+}
+
+// update gfonts
+$("#gfonts").attr("href", newGfontsQuery);
+
 
 
 

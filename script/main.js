@@ -166,7 +166,7 @@ $(".addToCompare").click(function() {
 		//generate class of font to remove
 		var fontClass = "."+fontName.replace(/\s/g, '');
 		//Remove html from compare Items
-		$(fontClass).remove();
+		$(".compareItems "+ fontClass).remove();
 		//update background image
 		changeTrayBackground();
 		//change "x" to "+"

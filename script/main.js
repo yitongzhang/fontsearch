@@ -2,11 +2,8 @@ $(function() {
 
 changeTrayBackground();
 
-<<<<<<< HEAD
-=======
 // api call
 
->>>>>>> master
 $( document ).ready(function() {
 // Call airtable API
 	$.ajax({
@@ -24,46 +21,6 @@ $( document ).ready(function() {
 });
 
 // ------------- Font loader ---------- //
-<<<<<<< HEAD
-var gfontsQuery =$("#gfonts").attr("href");
-console.log(gfontsQuery);
-var temp = gfontsQuery.split("=");
-var loadedFonts = temp[1].split("|");
-console.log(loadedFonts);
-var allNames = $(".fontName");
-var allPangrams = $(".smallShowcase");
-var newFontsToLoad =[];
-var newGfontsQuery;
-//console.log(typeof allFonts)
-
-for(var key in allNames){
-	// console.log(allNames[key].innerHTML)
-	// console.log(allPangrams[key].innerHTML)
-
-	//if font name not in gFonts query
-	if(allNames[key] != loadedFonts[key]){
-		//log new font into query
-		newFontsToLoad.push(allNames[key]);
-		//change the pangram and change its font-family
-		var tempStyle = $("<style> ."+allNames[key]+"{ font-family:"+allNames[key]+"; }</style>");
-		$('html > head').append(tempStyle);
-	}
-}
-
-//make new gGontsQuery
-for (var i=0; i<newFontsToLoad.lenght;i++) {
-	if (i == 0) {
-		newGfontsQuery = "https://fonts.googleapis.com/css?family=".concat("|").concat(i);
-	}
-	else{
-		newGfontsQuery = newGfontsQuery.concat("|").concat(i);
-	}
-	console.log(newGfontsQuery)
-}
-
-// update gfonts
-$("#gfonts").attr("href", newGfontsQuery);
-=======
 
 //get the gfonts query
 var gfontsQuery = $("#gfonts").attr("href");
@@ -124,8 +81,6 @@ console.log(newGfontsQuery)
 // update gfonts
 $("#gfonts").attr("href", newGfontsQuery);
 console.log($("#gfonts").attr("href"));
-
->>>>>>> master
 
 
 

@@ -2,6 +2,11 @@ $(function() {
 
 changeTrayBackground();
 
+<<<<<<< HEAD
+=======
+// api call
+
+>>>>>>> master
 $( document ).ready(function() {
 // Call airtable API
 	$.ajax({
@@ -19,6 +24,7 @@ $( document ).ready(function() {
 });
 
 // ------------- Font loader ---------- //
+<<<<<<< HEAD
 var gfontsQuery =$("#gfonts").attr("href");
 console.log(gfontsQuery);
 var temp = gfontsQuery.split("=");
@@ -57,6 +63,69 @@ for (var i=0; i<newFontsToLoad.lenght;i++) {
 
 // update gfonts
 $("#gfonts").attr("href", newGfontsQuery);
+=======
+
+//get the gfonts query
+var gfontsQuery = $("#gfonts").attr("href");
+
+//create array of all currently loaded fonts
+var temp = gfontsQuery.split("=");
+var loadedFonts = temp[1].split("|");
+for(var i=0; i < loadedFonts.length; i++) {
+	loadedFonts[i] = loadedFonts[i].replace("+", " ");
+}
+
+//get all displayed fonts
+var allDisplayedFonts = $(".fontName");
+
+
+//get all pangrams
+var allPangrams = $(".smallShowcase");
+
+var newFontsToLoad =[];
+var newGfontsQuery;
+var tempStyle;
+var cheater = 0;
+//update gfonts query + pangram css
+for(var key in allDisplayedFonts){
+	
+
+	
+	if (allDisplayedFonts.hasOwnProperty(key) && cheater<allDisplayedFonts.length) {
+		//change the pangram css
+		tempStyle = "<style> ."+allDisplayedFonts[key].innerHTML+"{ font-family:"+allDisplayedFonts[key].innerHTML+"; }</style>";
+		$("#fontStyles").append(tempStyle);
+		cheater+=1;
+
+		//add any missing fonts to gfonts query
+		if(isInGfontsQuery(allDisplayedFonts[key].innerHTML)){
+			continue;
+		}
+		else{
+			newFontsToLoad.push(allDisplayedFonts[key].innerHTML);
+
+		}
+	}
+}
+console.log(newFontsToLoad)
+console.log(gfontsQuery)
+
+//make new gGontsQuery
+for (key in newFontsToLoad) {
+	if (key == 0) {
+		newGfontsQuery = gfontsQuery.concat("|").concat(newFontsToLoad[key].replace(/\s/g, '+'));
+	}
+	else{
+		newGfontsQuery = newGfontsQuery.concat("|").concat(newFontsToLoad[key].replace(/\s/g, '+'));
+	}
+}
+console.log(newGfontsQuery)
+
+// update gfonts
+$("#gfonts").attr("href", newGfontsQuery);
+console.log($("#gfonts").attr("href"));
+
+>>>>>>> master
 
 
 
@@ -73,18 +142,18 @@ $(".addToCompare").click(function() {
 	var button = this;
 	var findThis = $(this).parent().find(".fontName").text().replace(/\s/g, '');
 	var traym = $(".compareItems");
-	console.log(traym[0]);
+	//console.log(traym[0]);
 
 	//find all thumbs
 	var allThumbs = $(".compareItems").find(".thumbs");
 	//set true if font in Tray
 	if (allThumbs.hasClass(findThis)){
-		console.log("found a "+findThis);
+		//console.log("found a "+findThis);
 		inTray = true;
 	}
 	//set false if font not in tray
 	else{
-		console.log("no "+findThis);
+		//console.log("no "+findThis);
 		inTray = false;
 	}
 
@@ -371,5 +440,24 @@ function createUiSlider(sliderName){
 	});
 }
 
+//check if part of gfonts query
+function isInGfontsQuery(fontName){
+	//get the gfonts query
+	var gfontsQuery = $("#gfonts").attr("href");
 
+	//create array of all currently loaded fonts
+	var temp = gfontsQuery.split("=");
+	var loadedFonts = temp[1].split("|");
+	for(var i=0; i < loadedFonts.length; i++) {
+		loadedFonts[i] = loadedFonts[i].replace("+", " ");
+	}
+
+
+	for (i=0;i<loadedFonts.length;i++){
+		if (loadedFonts[i] == fontName) {
+			return true;
+		}
+	}
+	return false;
+}
 

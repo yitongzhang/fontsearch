@@ -3,27 +3,93 @@ updateFonts()
 changeTrayBackground();
 
 // ------- important variables. don't lose lol -------//]
+//current fonts on page
+
+var gFontsQuery
+
+var next20Fonts
+
 // ranges
 var maxXheight
 var minXheight
+var xHeightChecked = false;
+$("#xHeight").change(
+    function(){
+        if ($(this).is(':checked')) {
+        	xHeightChecked = true;
+            console.log('true');
+        }
+        else{
+        	xHeightChecked = false;
+        	console.log('false');
+        }
+    });
 
 var maxStrokeThick
 var minStrokeThick
+var thicknessChecked = false;
+$("#StrokeThickness").change(
+    function(){
+        if ($(this).is(':checked')) {
+        	thicknessChecked = true;
+            console.log('true');
+        }
+        else{
+        	thicknessChecked = false;
+        	console.log('false');
+        }
+    });
 
 var maxStrokeContrast
 var minStrokeContrast
+var contrastChecked = false;
+$("#StrokeContrast").change(
+    function(){
+        if ($(this).is(':checked')) {
+        	contrastChecked = true;
+            console.log('true');
+        }
+        else{
+        	contrastChecked = false;
+        	console.log('false');
+        }
+    });
 
 var maxLetterWidth
 var minLetterWidth
+var widthChecked = false;
+$("#LetterWidth").change(
+    function(){
+        if ($(this).is(':checked')) {
+        	widthChecked = true;
+            console.log('true');
+        }
+        else{
+        	widthChecked = false;
+        	console.log('false');
+        }
+    });
 
 var maxStressAxe
 var minStressAxe
+var stressChecked = false;
+$("#StressAxe").change(
+    function(){
+        if ($(this).is(':checked')) {
+        	stressChecked = true;
+            console.log('true');
+        }
+        else{
+        	stressChecked = false;
+        	console.log('false');
+        }
+    });
 
 // serifs
-var serifFilter
-var bracketSizeFilter
-var symFilter
-var curvFilter
+var serifFilter = 9;
+var bracketSizeFilter = 9;
+var symFilter = 9;
+var curvFilter =9;
 
 $(".serifFonts").click(function() {
 	serifFilter=0;
@@ -56,11 +122,7 @@ $(".flat").click(function() {
 //should I set up an object of fonts currently on display?
 //or should that be Jqueried every time
 //or get it from the backend every time
-var currentFonts
 
-var gFontsQuery
-
-var next20Fonts
 
 // ------------- API call ---------- //
 var json;
@@ -85,7 +147,6 @@ $(document).ready(function apiCall() {
 $(document).ajaxStop(function () {
 	var cleanJson = json["records"];
 	console.log(cleanJson[0]);
-	getFontList();
 
 	//update when scroll
 		//when scroll past <li> at 70% of list
@@ -96,10 +157,45 @@ $(document).ajaxStop(function () {
 
 	//update when filter
 		//when click any serif filter or onslider
-		$('.serifStyle, .bracketSize, .serifSymm, .serifCurve').click(function(){
-		console.log("yup")
+		$('.serifStyle, .bracketSize, .serifSymm, .serifCurve, #xHeight, #StrokeThickness, #StrokeContrast, #LetterWidth, #StressAxe').click(function(){
 			//updateAccordingToFilters()
 			//remove any fonts that don't match filter
+			var fontsToEvaluate = getFontsOnPage()
+			console.log(fontsToEvaluate[0]["serifType"])
+			console.log(serifFilter)
+			var fontsToRemove =[];
+			for (key in fontsToEvaluate){
+				//keep on screen?
+				if (
+					(xHeightChecked==false || between(minXheight, fontsToEvaluate[key]["xHeight"],maxXheight))
+					&&(thicknessChecked==false || between(minStrokeThick,fontsToEvaluate[key]["thickness"],maxStrokeThick))
+					&&(contrastChecked==false || between(minStrokeContrast,fontsToEvaluate[key]["contrast"],maxStrokeContrast))
+					&&(stressChecked==false || between(minStressAxe,fontsToEvaluate[key]["stress"],maxStressAxe))
+					&&(widthChecked==false || between(minLetterWidth,fontsToEvaluate[key]["width"],maxLetterWidth))
+					&&(serifFilter==9||fontsToEvaluate[key]["serifType"] == serifFilter)
+					&&(bracketSizeFilter==9||fontsToEvaluate[key]["bracketSize"] == bracketSizeFilter)
+					&&(symFilter==9||fontsToEvaluate[key]["symmetric"] == symFilter)
+					&&(curvFilter==9||fontsToEvaluate[key]["curve"] == curvFilter)
+					) {
+					console.log("yes")
+					continue
+				}
+				//delete!
+				else{
+					console.log("removing "+ fontsToEvaluate[key]["name"])
+					fontsToRemove.push(fontsToEvaluate[key])
+				}
+
+			}
+			console.log(fontsToRemove)
+
+			//delete fonts
+			for(key in fontsToRemove){
+				var classToRemove = "."+fontsToRemove[key]["name"].replace(/\s/g, '')
+				$(classToRemove).remove()
+
+			}
+			
 
 			//append same number of fonts that was removed
 
@@ -107,7 +203,7 @@ $(document).ajaxStop(function () {
 		});
 
 		sliderX.noUiSlider.on('update', function(){
-			//updateAccordingToFilters()
+
 		});
 
 
@@ -198,11 +294,11 @@ changeSliderOpacity("StressAxe");
 // Create sliders
 var sliderX = document.getElementById('sliderX');
 noUiSlider.create(sliderX, {
-	start: [20, 80],
+	start: [0, 1],
 	connect: true,
 	range: {
 		'min': 0,
-		'max': 100
+		'max': 1
 	}
 });
 // When the slider value changes, update the input and span
@@ -219,11 +315,11 @@ sliderX.noUiSlider.on('update', function( values, handle ) {
 // Create sliders
 var sliderT = document.getElementById('sliderT');
 noUiSlider.create(sliderT, {
-	start: [20, 80],
+	start: [0, 1],
 	connect: true,
 	range: {
 		'min': 0,
-		'max': 100
+		'max': 1
 	}
 });
 // When the slider value changes, update the input and span
@@ -240,11 +336,11 @@ sliderT.noUiSlider.on('update', function( values, handle ) {
 // Create sliders
 var sliderC = document.getElementById('sliderC');
 noUiSlider.create(sliderC, {
-	start: [20, 80],
+	start: [0, 1],
 	connect: true,
 	range: {
 		'min': 0,
-		'max': 100
+		'max': 1
 	}
 });
 // When the slider value changes, update the input and span
@@ -261,11 +357,11 @@ sliderC.noUiSlider.on('update', function( values, handle ) {
 // Create sliders
 var sliderW = document.getElementById('sliderW');
 noUiSlider.create(sliderW, {
-	start: [20, 80],
+	start: [0, 1],
 	connect: true,
 	range: {
 		'min': 0,
-		'max': 100
+		'max': 1
 	}
 });
 // When the slider value changes, update the input and span
@@ -282,20 +378,20 @@ sliderW.noUiSlider.on('update', function( values, handle ) {
 // Create sliders
 var sliderS = document.getElementById('sliderS');
 noUiSlider.create(sliderS, {
-	start: [20, 80],
+	start: [0, 1],
 	connect: true,
 	range: {
 		'min': 0,
-		'max': 100
+		'max': 1
 	}
 });
 // When the slider value changes, update the input and span
 sliderS.noUiSlider.on('update', function( values, handle ) {
 	if ( handle ) {
-		LetterWidth = values[handle];
+		maxLetterWidth = values[handle];
 		//console.log("max is"+LetterWidth)
 	} else {
-		LetterWidth = values[handle];
+		minLetterWidth = values[handle];
 		//console.log("min is"+LetterWidth)
 	}
 });
@@ -493,20 +589,15 @@ function changeSliderOpacity(featureName){
 function createUiSlider(sliderName){
 	var slider = document.getElementById(sliderName);
 	noUiSlider.create(slider, {
-		start: [20, 80],
+		start: [0, 1],
 		connect: true,
 		range: {
 			'min': 0,
-			'max': 100
+			'max': 1
 		}
 	});
 }
-// useful functions
-function getFontList(){
-	var fontListObject = $(".fontList");
-	console.log(fontListObject)
-	return fontListObject;
-}
+
 
 //check if part of gfonts query
 function isInGfontsQuery(fontName){
@@ -570,4 +661,42 @@ function updateFonts(){
 	}
 	// update gfonts
 	$("#gfonts").attr("href", newGfontsQuery);
+}
+
+
+function getFontsOnPage(){
+	var fontsOnPage =[];
+	function fontObject(name,xHeight,thickness,contrast,width,stress,curve,serifType,bracketSize,symmetric){
+		this.name =	name; 
+		this.xHeight = xHeight; 
+		this.thickness = thickness; 
+		this.contrast =	contrast; 
+		this.width = width; 
+		this.stress = stress; 
+		this.curve = curve; 
+		this.serifType = serifType; 
+		this.bracketSize = bracketSize; 
+		this.symmetric = symmetric; 
+		
+	}
+	var temp = $(".fontList");
+	var tempListOfFonts = temp[0]["children"]
+
+	for(key in tempListOfFonts){
+		if (key<tempListOfFonts) {
+			var tempProp = tempListOfFonts[key]["children"][3].getAttribute('id').split("/")
+			var tempName = tempListOfFonts[key]["children"][1].innerHTML
+			var tempFontObject = new fontObject(tempName,tempProp[0],tempProp[1],tempProp[2],tempProp[3],tempProp[4],tempProp[5],tempProp[6],tempProp[7],tempProp[8])
+			fontsOnPage[key] = tempFontObject
+		}
+		else{
+			break;
+		}
+	}
+	return fontsOnPage;
+
+}
+
+function between(min, x, max) {
+  return x >= min && x <= max;
 }

@@ -91,38 +91,33 @@ var bracketSizeFilter = 9;
 var symFilter = 9;
 var curvFilter =9;
 
-$(".serifFonts").click(function() {
+$(".serifFonts img").click(function() {
 	serifFilter=0;
 });
-$(".sansFonts").click(function() {
+$(".sansFonts img").click(function() {
 	serifFilter=1;
 });
-$(".slabFonts").click(function() {
+$(".slabFonts img").click(function() {
 	serifFilter=2;
 });
-$(".largeBrackets").click(function() {
+$(".largeBrackets img").click(function() {
 	bracketSizeFilter=0;
 });
-$(".smallBrackets").click(function() {
+$(".smallBrackets img").click(function() {
 	bracketSizeFilter=1;
 });
-$(".symm").click(function() {
+$(".symm img").click(function() {
 	symFilter=0;
 });
-$(".asymm").click(function() {
+$(".asymm img").click(function() {
 	symFilter=1;
 });
-$(".curve").click(function() {
+$(".curve img").click(function() {
 	symFilter=0;
 });
-$(".flat").click(function() {
+$(".flat img").click(function() {
 	symFilter=1;
 });
-
-//should I set up an object of fonts currently on display?
-//or should that be Jqueried every time
-//or get it from the backend every time
-
 
 // ------------- API call ---------- //
 var json;
@@ -145,9 +140,13 @@ $(document).ready(function apiCall() {
 
 // ------------- page updates ---------- //
 $(document).ajaxStop(function () {
-	var cleanJson = json["records"];
-	console.log(cleanJson[0]);
-
+	var temp = json["records"];
+	var cleanJson =[];
+	for (key in temp){
+		cleanJson[key]=temp[key]["fields"]
+	}
+	console.log("ajax ready");
+	console.log(cleanJson);
 	//update when scroll
 		//when scroll past <li> at 70% of list
 
@@ -157,16 +156,50 @@ $(document).ajaxStop(function () {
 
 	//update when filter
 		//when click any serif filter or onslider
-		$('.serifStyle, .bracketSize, .serifSymm, .serifCurve, #xHeight, #StrokeThickness, #StrokeContrast, #LetterWidth, #StressAxe').click(function(){
+		$('.serifStyle img, .bracketSize img, .serifSymm img, .serifCurve img, #xHeight, #StrokeThickness, #StrokeContrast, #LetterWidth, #StressAxe').click(function(){
 			//updateAccordingToFilters()
 			//remove any fonts that don't match filter
 			var fontsToEvaluate = getFontsOnPage()
-			console.log(fontsToEvaluate[0]["serifType"])
-			console.log(serifFilter)
+			// console.log(fontsToEvaluate[0]["serifType"])
+			// console.log(serifFilter)
 			var fontsToRemove =[];
+			var fontsToAdd =[];
 			for (key in fontsToEvaluate){
 				//keep on screen?
 				if (
+				(xHeightChecked==false || between(minXheight, fontsToEvaluate[key]["xHeight"],maxXheight))
+				&&(thicknessChecked==false || between(minStrokeThick,fontsToEvaluate[key]["thickness"],maxStrokeThick))
+				&&(contrastChecked==false || between(minStrokeContrast,fontsToEvaluate[key]["contrast"],maxStrokeContrast))
+				&&(stressChecked==false || between(minStressAxe,fontsToEvaluate[key]["stress"],maxStressAxe))
+				&&(widthChecked==false || between(minLetterWidth,fontsToEvaluate[key]["width"],maxLetterWidth))
+				&&(serifFilter==9||fontsToEvaluate[key]["serifType"] == serifFilter)
+				&&(bracketSizeFilter==9||fontsToEvaluate[key]["bracketSize"] == bracketSizeFilter)
+				&&(symFilter==9||fontsToEvaluate[key]["symmetric"] == symFilter)
+				&&(curvFilter==9||fontsToEvaluate[key]["curve"] == curvFilter)
+				) {
+					//console.log("yes")
+					continue
+				}
+				//delete!
+				else{
+					//console.log("removing "+ fontsToEvaluate[key]["name"])
+					fontsToRemove.push(fontsToEvaluate[key])
+				}
+
+			}
+			//console.log(fontsToRemove)
+
+			//delete fonts
+			for(key in fontsToRemove){
+				var classToRemove = "."+fontsToRemove[key]["name"].replace(/\s/g, '')
+				$(classToRemove).remove()
+
+			}
+			//append same number of fonts that was removed
+			for(var i = 0;i<fontsToRemove.length;i++){
+				for(key in cleanJson){
+					console.log(cleanJson[key]["name"])
+					if (
 					(xHeightChecked==false || between(minXheight, fontsToEvaluate[key]["xHeight"],maxXheight))
 					&&(thicknessChecked==false || between(minStrokeThick,fontsToEvaluate[key]["thickness"],maxStrokeThick))
 					&&(contrastChecked==false || between(minStrokeContrast,fontsToEvaluate[key]["contrast"],maxStrokeContrast))
@@ -177,27 +210,13 @@ $(document).ajaxStop(function () {
 					&&(symFilter==9||fontsToEvaluate[key]["symmetric"] == symFilter)
 					&&(curvFilter==9||fontsToEvaluate[key]["curve"] == curvFilter)
 					) {
-					console.log("yes")
-					continue
+						fontsToAdd.push(cleanJson[key])
+						console.log(cleanJson[key])
+					}
 				}
-				//delete!
-				else{
-					console.log("removing "+ fontsToEvaluate[key]["name"])
-					fontsToRemove.push(fontsToEvaluate[key])
-				}
-
 			}
-			console.log(fontsToRemove)
-
-			//delete fonts
-			for(key in fontsToRemove){
-				var classToRemove = "."+fontsToRemove[key]["name"].replace(/\s/g, '')
-				$(classToRemove).remove()
-
-			}
-			
-
-			//append same number of fonts that was removed
+			//console.log(fontsToAdd)
+			//$(".fontList").append()
 
 			//update fonts on page
 		});
